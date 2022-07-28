@@ -1,0 +1,27 @@
+[
+    {
+        id: 1,
+        nombre: 'taza',
+        precio: 3
+    } ,
+    {
+        id: 2,
+        nombre: 'jarra',
+        precio: 32
+    } ,
+    {
+        id: 3,
+        nombre: 'botella',
+        precio: 5
+    } ,
+    {
+        id: 4,
+        nombre: 'cuchillo',
+        precio: 5
+    } ,
+    {
+        id: 5,
+        nombre: 'tenedor',
+        precio: 5
+    }
+]
