@@ -1,8 +1,8 @@
-const { error } = require('console');
+const {    error } = require('console');
 const fs = require('fs');
 const id = 8;
 const indeseado = 3;
-const ruta = './bazar.txt'
+const ruta = './bazar.json'
 const productList = [];
 const product1 = {
     //id: 1,
@@ -35,44 +35,74 @@ const product6 = {
     precio: 36
 }
 
-obj = [1, 2, 3, 4, 5]
+// obj = [1, 2, 3, 4, 5]
 
 
 
 class Contenedor {
     constructor(ruta) {
-        fs.promises.readFile(ruta, 'utf-8')
-            .then(contenidoArchivoTXT => {
-                console.log(contenidoArchivoTXT)
-            })
-            .catch(err => {
-                console.log('Error al leer el archivo .txt', err)
-            })
-        //console.log(name)
-        //console.log(obj)
+        this.ruta=ruta
+        console.log(ruta)
 
     }
-    save () {
+    async leer () {
 
         try {
-         const data1 = await fs.promises.readFile(ruta, 'utf-8');
-         console.log(data1);
- 
-         await fs.promises.writeFile(ruta, 'Se sobre escribe Alogo nuevo')
- 
-         const data2 = await fs.promises.readFile(ruta, 'utf-8');
-         console.log(data2)
-          
-     } catch (error) {
-         console.log(error)
-     }
 
+            const data1 = await fs.promises.readFile(ruta, 'utf-8');
+//            console.log(data1);
+            const listaJSON = JSON.parse(data1);
+            console.log('La lista de productos es: ', listaJSON);
+            return listaJSON;
 
- console.log('La lista de productos es ... \n', productList)
+        } catch (error) {
+            console.log('Error al leer el archivo json');
+            console.log(error);
+            return error; 
+        }
 
-}
+    }
+    async save(product) {
 
-    getById(id) {
+        const listaProductos = await this.leer();
+        let newId;
+
+        if (listaProductos.length == 0) {
+            newId = 1;
+        } else {
+            newId = listaProductos[listaProductos.length -1].id +1;
+        }
+        console.log("El nuevo id es: ", newId)
+
+        const newProduct = { id: newId, ...product}
+        listaProductos.push(newProduct);
+
+        await fs.promises.writeFile(this.ruta, JSON.stringify(listaProductos, null, 2))
+
+        await this.leer();
+
+    }
+
+    async actalizar (id, product) {
+        try {
+            const listaProductos = await this.leer();
+            const indexProduct = listaProductos.findIndex((o) => o.id == id);
+            if (indexProduct == -1 ) {
+                console.log('Objeto no encontrado')
+                return 'Busqueda erronea'
+            } else {
+                listaProductos[indexProduct] = {id, ...product}; //Acá está el problema
+                listaProductos.push(listaProductos[indexProduct]); //Acá está el problema
+                await fs.promises.writeFile(this.ruta, JSON.stringify(listaProductos, null, 2)); //Acá está el problema
+            }
+            return {id, ...listaProductos}
+        } catch (error) {
+            console.log('Error en actualización')
+        }
+
+    }
+
+    async getById(id) {
         const productoEncontrado = obj.find(element => element == id)
         if (productoEncontrado) {
             console.log('Producto encontrado: ', productoEncontrado)
@@ -80,7 +110,7 @@ class Contenedor {
             console.log('El producto buscado no se encontró...')
         }
     }
-    deletById(indeseado) {
+    async deletById(indeseado) {
         const productoIndeseado = obj.find(element => element == indeseado)
         if (productoIndeseado) {
             console.log('Producto Indeseado: ', productoIndeseado)
@@ -91,7 +121,7 @@ class Contenedor {
             console.log('El producto que se desea eliminar no se encontró...')
         }
     }
-    deleteAll() {
+    async deleteAll() {
         obj.splice(0, obj.length)
         console.log('Array vacío: ', obj)
     }
@@ -99,9 +129,17 @@ class Contenedor {
 
 
 
+async function main () {
+
 const usuario = new Contenedor(ruta);
 
-//save();
+usuario.leer();
+usuario.save(product5);
+usuario.actalizar(2, product2);
 //usuario.getById(id);
 //usuario.deletById(indeseado);
 //usuario.deleteAll();
+
+}
+
+main();
