@@ -135,8 +135,6 @@ class Contenedor {
         }
     }
 
-
-    // identifico el elemento pero no puedo ejecutar desde las lineas 155 a 157
     async deletById(id) {
 
         console.log('eliminar archivo por id')
@@ -148,20 +146,13 @@ class Contenedor {
             if (indexIndeseado == -1 ) {
                 console.log('El producto indeseado que busca no está en la lista')
                 return 'EL ELEMENTO QUE DESEA ELIMINAR NO SE ENCONTRÓ'
-
             } else {
-                const busqueda = listaProductos[indexIndeseado];
-                console.log('El producto indeseado es: ', busqueda)
-                listaProductos.splice(indexIndeseado, 1) //borra elemento de la lista
-                await fs.promises.writeFile(this.ruta, JSONS.stringify(listaProductos, null, 2)) //guarda elemento en la lista
-                await this.leer();
-
+                const newList = listaProductos.filter(item => item.id != id);
+                await fs.promises.writeFile(this.ruta, JSON.stringify(newList, null, 2));
             }
         } catch (error) {
             return 'no se pudo eliminar nada'
         }
-
-
     }
 
     async deleteAll() {
@@ -169,9 +160,7 @@ class Contenedor {
         console.log ('Se ejecuta la función borrar todo')
 
         try {
-            const listaProductos = await this.leer();
-            listaProductos.splice(1, 5) // borro los elementos desde la posición 1 hasta la ultima posición del array - Aunque Hardcodee las posiciones con un splice (1,5) la función no se ejecuta
-            await fs.promises.writeFile(this.ruta, JSONS.stringify(listaProductos, null, 2)) //guardo la nueva lista en el archivo
+            await fs.promises.writeFile(this.ruta, '[]') //guardo la nueva lista en el archivo
             await this.leer();
         } catch (error) {
             return 'no se pudo eliminar nada'
@@ -182,17 +171,17 @@ class Contenedor {
 async function main() {
 
     const usuario = new Contenedor(ruta);
-    await usuario.leer();
-    //await usuario.save(product3);
-    //await usuario.save(product1);
-    //await usuario.save(product5);
-    //await usuario.save(product3);
-    await usuario.leer();
+    //await usuario.leer();
+    await usuario.save(product3);
+    await usuario.save(product1);
+    await usuario.save(product5);
+    await usuario.save(product3);
+    //await usuario.leer();
     //await usuario.leer();
     //await usuario.actalizar(4, product4);
     //await console.log('producto buscado por id');
     //await usuario.getById(1);
-    await usuario.deletById(1);
+    //await usuario.deletById(4);
     await usuario.deleteAll();
 }
 
