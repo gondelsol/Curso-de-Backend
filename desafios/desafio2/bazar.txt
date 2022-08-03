@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "nombre": "botella",
+    "precio": 50
+  },
+  {
+    "id": 2,
+    "nombre": "taza",
+    "precio": 3
+  },
+  {
+    "id": 3,
+    "nombre": "tenedor",
+    "precio": 895
+  },
+  {
+    "id": 4,
+    "nombre": "cuchillo",
+    "precio": 65
+  },
+  {
+    "id": 5,
+    "nombre": "botella",
+    "precio": 50
+  },
+  {
+    "id": 6,
+    "nombre": "taza",
+    "precio": 3
+  },
+  {
+    "id": 7,
+    "nombre": "tenedor",
+    "precio": 895
+  },
+  {
+    "id": 8,
+    "nombre": "botella",
+    "precio": 50
+  },
+  {
+    "id": 9,
+    "nombre": "botella",
+    "precio": 50
+  },
+  {
+    "id": 10,
+    "nombre": "taza",
+    "precio": 3
+  },
+  {
+    "id": 11,
+    "nombre": "tenedor",
+    "precio": 895
+  },
+  {
+    "id": 12,
+    "nombre": "botella",
+    "precio": 50
+  },
+  {
+    "id": 13,
+    "nombre": "botella",
+    "precio": 50
+  },
+  {
+    "id": 14,
+    "nombre": "taza",
+    "precio": 3
+  },
+  {
+    "id": 15,
+    "nombre": "tenedor",
+    "precio": 895
+  },
+  {
+    "id": 16,
+    "nombre": "botella",
+    "precio": 50
+  },
+  {
+    "id": 17,
+    "nombre": "botella",
+    "precio": 50
+  },
+  {
+    "id": 18,
+    "nombre": "taza",
+    "precio": 3
+  },
+  {
+    "id": 19,
+    "nombre": "tenedor",
+    "precio": 895
+  },
+  {
+    "id": 20,
+    "nombre": "botella",
+    "precio": 50
+  },
+  {
+    "id": 21,
+    "nombre": "botella",
+    "precio": 50
+  },
+  {
+    "id": 22,
+    "nombre": "taza",
+    "precio": 3
+  },
+  {
+    "id": 23,
+    "nombre": "tenedor",
+    "precio": 895
+  },
+  {
+    "id": 24,
+    "nombre": "botella",
+    "precio": 50
+  },
+  {
+    "id": 25,
+    "nombre": "botella",
+    "precio": 50
+  },
+  {
+    "id": 26,
+    "nombre": "taza",
+    "precio": 3
+  },
+  {
+    "id": 27,
+    "nombre": "tenedor",
+    "precio": 895
+  },
+  {
+    "id": 28,
+    "nombre": "botella",
+    "precio": 50
+  },
+  {
+    "id": 29,
+    "nombre": "botella",
+    "precio": 50
+  },
+  {
+    "id": 30,
+    "nombre": "taza",
+    "precio": 3
+  },
+  {
+    "id": 31,
+    "nombre": "tenedor",
+    "precio": 895
+  },
+  {
+    "id": 32,
+    "nombre": "botella",
+    "precio": 50
+  },
+  {
+    "id": 33,
+    "nombre": "botella",
+    "precio": 50
+  },
+  {
+    "id": 34,
+    "nombre": "taza",
+    "precio": 3
+  },
+  {
+    "id": 35,
+    "nombre": "tenedor",
+    "precio": 895
+  },
+  {
+    "id": 36,
+    "nombre": "botella",
+    "precio": 50
+  }
+]
