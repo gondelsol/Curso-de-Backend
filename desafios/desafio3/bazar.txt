@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "nombre": "botella",
+    "precio": 50
+  },
+  {
+    "id": 2,
+    "nombre": "taza",
+    "precio": 3
+  },
+  {
+    "id": 3,
+    "nombre": "tenedor",
+    "precio": 895
+  },
+  {
+    "id": 4,
+    "nombre": "botella",
+    "precio": 50
+  },
+  {
+    "id": 5,
+    "nombre": "botella",
+    "precio": 50
+  },
+  {
+    "id": 6,
+    "nombre": "taza",
+    "precio": 3
+  },
+  {
+    "id": 7,
+    "nombre": "tenedor",
+    "precio": 895
+  },
+  {
+    "id": 8,
+    "nombre": "botella",
+    "precio": 50
+  }
+]
