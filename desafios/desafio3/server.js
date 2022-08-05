@@ -1,16 +1,11 @@
 const { request, response } = require('express');
 const express = require('express');
-const {contenedor} = require ('./classes.js')
-
-const PORT = 3000;
-
 const app = express();
-
-
 const { error } = require('console');
-
 const fs = require('fs');
 const ruta = './bazar.txt'
+
+const PORT = 7254;
 
 const product1 = {
     //id: 1,
@@ -48,9 +43,7 @@ const product6 = {
     precio: 36
 }
 
-const server = app.listen(PORT, ()=>{
-    console.log(`Servidor http escuchando en http://localhost:3000/`)
-});
+
 
 class Contenedor {
 
@@ -175,9 +168,14 @@ class Contenedor {
     }
 }
 
+const server = app.listen(PORT, ()=>{
+    console.log(`Servidor http escuchando en http://localhost:${PORT}/`)
+});
+
+
 async function main() {
 
-    
+
 
     const usuario = new Contenedor(ruta);
     //await usuario.leer();
@@ -196,17 +194,19 @@ async function main() {
     const products = await usuario.leer();
     console.log('Lectura final de productos')
     console.log(products)
+
+
     app.get('/', (request, response)=>{
         response.send('Desafio entregable 3');
     });
     
     app.get('/productos', (request, response)=>{
-        response.send('<h1>Lista de productos</h1>', products);
+        response.send(products);
     });
     
     app.get('/productRandom', (request, response)=>{
-        const random = Math.floor(Math.random()*products.length)
-        response.send('<h1>Producto Random</h1>', product[random]);
+        const random = Math.floor(Math.round(Math.random()*products.length));
+        response.send(products[random]);
     });
     
     app.get('*', (request, response)=>{
@@ -215,30 +215,3 @@ async function main() {
 }
 
 main();
-
-
-
-
-
-/*
-
-
-
-app.get('/', (request, response)=>{
-    response.send('Desafio entregable 3');
-});
-
-app.get('/productos', (request, response)=>{
-    response.send('<h1>Lista de productos</h1>');
-});
-
-app.get('/productRandom', (request, response)=>{
-    response.send('<h1>Producto Random</h1>');
-});
-
-app.get('*', (request, response)=>{
-    response.send('<h1>Problema al mostrar ruta</h1> 404 - Page not found');
-});
-
-
-*/
