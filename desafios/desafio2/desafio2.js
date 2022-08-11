@@ -1,11 +1,7 @@
 const { error } = require('console');
 
 const fs = require('fs');
-//const id = 8;
-const indeseado = 3;
 const ruta = './bazar.txt'
-
-const productList = [];
 
 const product1 = {
     //id: 1,
@@ -182,7 +178,7 @@ async function main() {
     //await console.log('producto buscado por id');
     //await usuario.getById(1);
     //await usuario.deletById(4);
-    await usuario.deleteAll();
+    //await usuario.deleteAll();
 }
 
 main();
